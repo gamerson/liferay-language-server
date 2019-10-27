@@ -1,0 +1,87 @@
+{
+	"tags": [
+		{
+			"tag": "model-hints",
+			"comment" : "the model-hints",
+			"attributes": []
+		},
+		{
+			"tag": "model",
+			"comment" : "the model",
+			"attributes": [
+				{
+					"attribute": "name",
+					"value": "testSB.model.Foo",
+					"validateValues": false,
+					"comment": "The name of model."
+				}
+			]
+		},
+		{
+			"tag": "field",
+			"comment" : "the field",
+			"attributes": [
+				{
+					"attribute": "name",
+					"value": "null",
+					"validateValues": false,
+					"comment": "The name of field."
+				},
+				{
+					"attribute": "type",
+					"value": "BigDecimal,Blob,boolean,Boolean,Collection,Date,double,Double,float,Float,Intefer,int,long,Long,Map,short,Short,String",
+					"validateValues": true,
+					"comment": "The type of feild."
+				}
+			]
+		},
+		{
+			"tag": "hint",
+			"comment" : "the hint",
+			"attributes": [
+				{
+					"attribute": "name",
+					"value": "max-length",
+					"validateValues": true,
+					"comment": "The name of hint."
+				}
+			]
+		},
+		{
+			"tag": "hint",
+			"comment" : "the hint",
+			"attributes": [
+				{
+					"attribute": "name",
+					"value": "max-length",
+					"validateValues": true,
+					"comment": "The name of hint."
+				}
+			]
+		},
+		{
+			"tag": "validator",
+			"comment" : "the validator",
+			"attributes": [
+				{
+					"attribute": "name",
+					"value": "required,url,email",
+					"validateValues": true,
+					"comment": "The name of validator."
+				}
+			]
+		},
+		{
+			"tag": "hint-collection",
+			"comment" : "the hint-collection",
+			"attributes": [
+				{
+					"attribute": "name",
+					"value": "URL,ENTITY-ID,TEXTAREA,CLOB,EDITOR,EMAIL-ADDRESS",
+					"validateValues": true,
+					"comment": "The name of hint-collection."
+				}
+			]
+		}
+	]
+}

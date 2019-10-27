@@ -1,0 +1,640 @@
+{
+	"tags": [
+		{
+			"tag": "service-builder",
+			"attributes": [
+				{
+					"attribute": "package-path",
+					"value": "java-package",
+					"validateValues": true
+				},
+				{
+					"attribute": "auto-import-default-references",
+					"value": "boolean",
+					"validateValues": true
+				},
+				{
+					"attribute": "auto-namespace-tables",
+					"value": "boolean",
+					"validateValues": true
+				},
+				{
+					"attribute": "dependency-injector",
+					"value": "spring,ds",
+					"validateValues": true
+				},
+				{
+					"attribute": "mvcc-enabled",
+					"value": "boolean",
+					"validateValues": true
+				}
+			],
+			"childTags": [
+				{
+					"tag": "author",
+					"attributes": [],
+					"childTags": []
+				},
+				{
+					"tag": "namespace",
+					"attributes": [],
+					"childTags": []
+				},
+				{
+					"tag": "entity",
+					"attributes": [
+						{
+							"attribute": "name",
+							"value": "CustomLSPServiceXMLNameService",
+							"validateValues": true
+						},
+						{
+							"attribute": "human-name",
+							"value": "from-name",
+							"validateValues": false
+						},
+						{
+							"attribute": "table",
+							"value": "from-name",
+							"validateValues": false
+						},
+						{
+							"attribute": "uuid",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "uuid-accessor",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "external-reference-code",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "local-service",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "remote-service",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "persistence",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "persistence-class",
+							"value": "from-PersistenceClass",
+							"validateValues": true
+						},
+						{
+							"attribute": "data-source",
+							"value": "from-DataSource",
+							"validateValues": true
+						},
+						{
+							"attribute": "session-factory",
+							"value": "from-LiferaySessionFactory",
+							"validateValues": true
+						},
+						{
+							"attribute": "tx-manager",
+							"value": "none",
+							"validateValues": false
+						},
+						{
+							"attribute": "cache-enabled",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "dynamic-update-enabled",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "json-enabled",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "mvcc-enabled",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "trash-enabled",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "uad-applicaiton-name",
+							"value": "from-Application",
+							"validateValues": true
+						},
+						{
+							"attribute": "uad-auto-delete",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "uad-dir-path",
+							"value": "from-UADImplementation",
+							"validateValues": true
+						},
+						{
+							"attribute": "uad-package-path",
+							"value": "from-UADClass",
+							"validateValues": true
+						},
+						{
+							"attribute": "versioned",
+							"value": "boolean",
+							"validateValues": true
+						},
+						{
+							"attribute": "deprecated",
+							"value": "boolean",
+							"validateValues": true
+						}
+					],
+					"childTags": [
+						{
+							"tag": "column",
+							"attributes": [
+								{
+									"attribute": "name",
+									"value": "CustomLSPServiceXMLNameService",
+									"validateValues": true
+								},
+								{
+									"attribute": "db-name",
+									"value": "null",
+									"validateValues": false
+								},
+								{
+									"attribute": "type",
+									"value": "BigDecimal,Blob,boolean,Boolean,Collection,Date,double,Double,float,Float,Intefer,int,long,Long,Map,short,Short,String",
+									"validateValues": true
+								},
+								{
+									"attribute": "primary",
+									"value": "boolean",
+									"validateValues": true
+								},
+								{
+									"attribute": "accessor",
+									"value": "boolean",
+									"validateValues": true
+								},
+								{
+									"attribute": "filter-primary",
+									"value": "from-list-column",
+									"validateValues": true
+								},
+								{
+									"attribute": "entity",
+									"value": "from-list-table",
+									"validateValues": true
+								},
+								{
+									"attribute": "mapping-table",
+									"value": "null",
+									"validateValues": false
+								},
+								{
+									"attribute": "id-type",
+									"value": "class,increment,identity,sequence",
+									"validateValues": true
+								},
+								{
+									"attribute": "id-param",
+									"value": "null",
+									"validateValues": false
+								},
+								{
+									"attribute": "convert-null",
+									"value": "boolean",
+									"validateValues": true
+								},
+								{
+									"attribute": "lazy",
+									"value": "boolean",
+									"validateValues": true
+								},
+								{
+									"attribute": "localized",
+									"value": "boolean",
+									"validateValues": true
+								},
+								{
+									"attribute": "json-enabled",
+									"value": "boolean",
+									"validateValues": true
+								},
+								{
+									"attribute": "container-model",
+									"value": "boolean",
+									"validateValues": true
+								},
+								{
+									"attribute": "parent-container-model",
+									"value": "boolean",
+									"validateValues": true
+								},
+								{
+									"attribute": "uad-anonymize-field-name",
+									"value": "null",
+									"validateValues": false
+								},
+								{
+									"attribute": "uad-nonanonymizable",
+									"value": "boolean",
+									"validateValues": true
+								}
+							],
+							"childTags": []
+						},
+						{
+							"tag": "localized-entity",
+							"attributes": [
+								{
+									"attribute": "name",
+									"value": "null",
+									"validateValues": false
+								},
+								{
+									"attribute": "table",
+									"value": "from-name",
+									"validateValues": true
+								}
+							],
+							"childTags": [
+								{
+									"tag": "column",
+									"attributes": [
+										{
+											"attribute": "name",
+											"value": "CustomLSPServiceXMLNameService",
+											"validateValues": true
+										},
+										{
+											"attribute": "db-name",
+											"value": "null",
+											"validateValues": false
+										},
+										{
+											"attribute": "type",
+											"value": "BigDecimal,Blob,boolean,Boolean,Collection,Date,double,Double,float,Float,Intefer,int,long,Long,Map,short,Short,String",
+											"validateValues": true
+										},
+										{
+											"attribute": "primary",
+											"value": "boolean",
+											"validateValues": true
+										},
+										{
+											"attribute": "accessor",
+											"value": "boolean",
+											"validateValues": true
+										},
+										{
+											"attribute": "filter-primary",
+											"value": "from-list-column",
+											"validateValues": true
+										},
+										{
+											"attribute": "entity",
+											"value": "from-list-table",
+											"validateValues": true
+										},
+										{
+											"attribute": "mapping-table",
+											"value": "null",
+											"validateValues": false
+										},
+										{
+											"attribute": "id-type",
+											"value": "class,increment,identity,sequence",
+											"validateValues": true
+										},
+										{
+											"attribute": "id-param",
+											"value": "null",
+											"validateValues": false
+										},
+										{
+											"attribute": "convert-null",
+											"value": "boolean",
+											"validateValues": true
+										},
+										{
+											"attribute": "lazy",
+											"value": "boolean",
+											"validateValues": true
+										},
+										{
+											"attribute": "localized",
+											"value": "boolean",
+											"validateValues": true
+										},
+										{
+											"attribute": "json-enabled",
+											"value": "boolean",
+											"validateValues": true
+										},
+										{
+											"attribute": "container-model",
+											"value": "boolean",
+											"validateValues": true
+										},
+										{
+											"attribute": "parent-container-model",
+											"value": "boolean",
+											"validateValues": true
+										},
+										{
+											"attribute": "uad-anonymize-field-name",
+											"value": "null",
+											"validateValues": false
+										},
+										{
+											"attribute": "uad-nonanonymizable",
+											"value": "boolean",
+											"validateValues": true
+										}
+									],
+									"childTags": []
+								},
+								{
+									"tag": "localized-column",
+									"attributes": [
+										{
+											"attribute": "name",
+											"value": "null",
+											"validateValues": false
+										},
+										{
+											"attribute": "db-name",
+											"value": "from-name",
+											"validateValues": true
+										}
+									],
+									"childTags": []
+								},
+								{
+									"tag": "order",
+									"attributes": [
+										{
+											"attribute": "by",
+											"value": "asc,desc",
+											"validateValues": true
+										}
+									],
+									"childTags": [
+										{
+											"tag": "order-column",
+											"attributes": [
+												{
+													"attribute": "name",
+													"value": "xml-elements",
+													"valueServiceAttrs": "/service.xml, /service-builder/entity/column/@name",
+													"validateValues": true
+												},
+												{
+													"attribute": "case-sensitive",
+													"value": "boolean",
+													"validateValues": true
+												},
+												{
+													"attribute": "order-by",
+													"value": "asc,desc",
+													"validateValues": true
+												}
+											],
+											"childTags": []
+										}
+									]
+								},
+								{
+									"tag": "finder",
+									"attributes": [
+										{
+											"attribute": "name",
+											"value": "null",
+											"validateValues": false
+										},
+										{
+											"attribute": "return-type",
+											"value": "CustomLSPServiceXMLFinderReturnTypeService",
+											"valueServiceAttrs": "/service.xml, /service-builder/entity/@name",
+											"validateValues": true
+										},
+										{
+											"attribute": "unique",
+											"value": "boolean",
+											"validateValues": true
+										},
+										{
+											"attribute": "where",
+											"value": "null",
+											"validateValues": true
+										},
+										{
+											"attribute": "db-index",
+											"value": "boolean",
+											"validateValues": true
+										}
+									],
+									"childTags": [
+										{
+											"tag": "finder-column",
+											"attributes": [
+												{
+													"attribute": "name",
+													"value": "xml-elements",
+													"valueServiceAttrs": "/service.xml, /service-builder/entity/column/@name",
+													"validateValues": true
+												},
+												{
+													"attribute": "case-sensitive",
+													"value": "boolean",
+													"validateValues": true
+												},
+												{
+													"attribute": "comparator",
+													"value": "=,!=,<,<=,>,>=,LIKE",
+													"validateValues": true
+												},
+												{
+													"attribute": "arrayable-operator",
+													"value": "AND,OR",
+													"validateValues": true
+												},
+												{
+													"attribute": "arrayable-pagination",
+													"value": "boolean",
+													"validateValues": true
+												}
+											],
+											"childTags": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"tag": "order",
+							"attributes": [
+								{
+									"attribute": "by",
+									"value": "asc,desc",
+									"validateValues": true
+								}
+							],
+							"childTags": [
+								{
+									"tag": "order-column",
+									"attributes": [
+										{
+											"attribute": "name",
+											"value": "xml-elements",
+											"valueServiceAttrs": "/service.xml, /service-builder/entity/column/@name",
+											"validateValues": true
+										},
+										{
+											"attribute": "case-sensitive",
+											"value": "boolean",
+											"validateValues": true
+										},
+										{
+											"attribute": "order-by",
+											"value": "asc,desc",
+											"validateValues": true
+										}
+									],
+									"childTags": []
+								}
+							]
+						},
+						{
+							"tag": "finder",
+							"attributes": [
+								{
+									"attribute": "name",
+									"value": "null",
+									"validateValues": false
+								},
+								{
+									"attribute": "return-type",
+									"value": "CustomLSPServiceXMLFinderReturnTypeService",
+									"valueServiceAttrs": "/service.xml, /service-builder/entity/@name",
+									"validateValues": false
+								},
+								{
+									"attribute": "unique",
+									"value": "boolean",
+									"validateValues": true
+								},
+								{
+									"attribute": "where",
+									"value": "null",
+									"validateValues": true
+								},
+								{
+									"attribute": "db-index",
+									"value": "boolean",
+									"validateValues": true
+								}
+							],
+							"childTags": [
+								{
+									"tag": "finder-column",
+									"attributes": [
+										{
+											"attribute": "name",
+											"value": "xml-elements",
+											"valueServiceAttrs": "/service.xml, /service-builder/entity/column/@name",
+											"validateValues": true
+										},
+										{
+											"attribute": "case-sensitive",
+											"value": "boolean",
+											"validateValues": true
+										},
+										{
+											"attribute": "comparator",
+											"value": "=,!=,<,<=,>,>=,LIKE",
+											"validateValues": true
+										},
+										{
+											"attribute": "arrayable-operator",
+											"value": "AND,OR",
+											"validateValues": true
+										},
+										{
+											"attribute": "arrayable-pagination",
+											"value": "boolean",
+											"validateValues": true
+										}
+									],
+									"childTags": []
+								}
+							]
+						},
+						{
+							"tag": "reference",
+							"attributes": [
+								{
+									"attribute": "package-path",
+									"value": "CustomLSPServiceXMLReferencePackagePathService",
+									"validateValues": false
+								},
+								{
+									"attribute": "entity",
+									"value": "CustomLSPServiceXMLReferenceEntityService",
+									"validateValues": true
+								}
+							],
+							"childTags": []
+						},
+						{
+							"tag": "tx-required",
+							"attributes": [],
+							"childTags": []
+						}
+					]
+				},
+				{
+					"tag": "exceptions",
+					"attributes": [],
+					"childTags": [
+						{
+							"tag": "exception",
+							"attributes": [],
+							"childTags": []
+						}
+					]
+				},
+				{
+					"tag": "service-builder-import",
+					"attributes": [
+						{
+							"attribute": "file",
+							"value": "from-file",
+							"validateValues": true,
+							"comment": "Set the comments in the service-builder-import element."
+						}
+					],
+					"childTags": []
+				}
+			]
+		}
+	]
+}
