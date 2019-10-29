@@ -16,13 +16,7 @@
 
 package com.liferay.ide.languageserver.completions;
 
-import com.liferay.ide.languageserver.properties.BladeProperties;
-import com.liferay.ide.languageserver.properties.CoreLanguageProperties;
-import com.liferay.ide.languageserver.properties.LiferayPluginPackageProperties;
-import com.liferay.ide.languageserver.properties.LiferayWorkspaceGradleProperties;
-import com.liferay.ide.languageserver.properties.PortalProperties;
-import com.liferay.ide.languageserver.properties.PropertiesFile;
-import com.liferay.ide.languageserver.properties.PropertyPair;
+import com.liferay.ide.languageserver.properties.*;
 import com.liferay.ide.languageserver.services.Service;
 import com.liferay.ide.languageserver.util.FileUtil;
 
@@ -34,9 +28,7 @@ import java.net.URI;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Properties;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.commons.lang.StringEscapeUtils;
@@ -57,14 +49,16 @@ public class PropertiesCompletion {
 
 		_line = position.getLine();
 
-		TextDocumentIdentifier textDocument = completionParams.getTextDocument();
+		TextDocumentIdentifier textDocument =
+			completionParams.getTextDocument();
 
 		try {
 			URI uri = new URI(textDocument.getUri());
 
 			_file = new File(uri);
 
-			List<PropertiesFile> propertiesFiles = _getAllPropertiesFiles(_file);
+			List<PropertiesFile> propertiesFiles = _getAllPropertiesFiles(
+				_file);
 
 			Stream<PropertiesFile> stream = propertiesFiles.stream();
 
@@ -98,36 +92,39 @@ public class PropertiesCompletion {
 
 			List<PropertyPair> properties = _propertiesFile.getProperties();
 
-			if (line.contains("=")) {
+			if (line.contains("=") || line.contains(":")) {
 				int index = line.indexOf("=");
+
+				if (index < 0) {
+					index = line.indexOf(":");
+				}
 
 				String key = line.substring(0, index);
 
 				String key2 = key.trim();
 
-				Stream<PropertyPair> stream = properties.stream();
+				for (PropertyPair propertyPair : properties) {
+					if (key2.equals(propertyPair.getKey())) {
+						Service value = propertyPair.getValue();
 
-				completionItems = stream.filter(
-					propertyPair -> Objects.equals(key2, propertyPair.getKey())
-				).map(
-					PropertyPair::getValue
-				).map(
-					Service::getPossibleValues
-				).flatMap(
-					Stream::of
-				).map(
-					possibleValue -> {
-						possibleValue = StringEscapeUtils.escapeJava(possibleValue);
+						if (value != null) {
+							for (String possibleValue :
+									value.getPossibleValues()) {
 
-						CompletionItem completionItem = new CompletionItem(possibleValue);
+								possibleValue = StringEscapeUtils.escapeJava(
+									possibleValue);
 
-						completionItem.setKind(CompletionItemKind.Property);
+								CompletionItem completionItem =
+									new CompletionItem(possibleValue);
 
-						return completionItem;
+								completionItem.setKind(
+									CompletionItemKind.Property);
+
+								completionItems.add(completionItem);
+							}
+						}
 					}
-				).collect(
-					Collectors.toList()
-				);
+				}
 			}
 			else {
 				Properties props = new Properties();
@@ -166,6 +163,7 @@ public class PropertiesCompletion {
 		propertiesFiles.add(new PortalProperties(file));
 		propertiesFiles.add(new LiferayPluginPackageProperties(file));
 		propertiesFiles.add(new CoreLanguageProperties(file));
+		propertiesFiles.add(new BndBnd(file));
 
 		return propertiesFiles;
 	}

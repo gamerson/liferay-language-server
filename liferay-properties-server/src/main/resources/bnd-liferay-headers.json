@@ -1,0 +1,20 @@
+{
+	"checkPossibleKeys": false,
+	"keys": [
+		{
+			"comment": "",
+			"key": "Liferay-Service",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "Liferay-Require-SchemaVersion",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "Liferay-JS-Config",
+			"values": "/META-INF/resources/config.js"
+		}
+	]
+}

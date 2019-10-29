@@ -57,10 +57,13 @@ public class LiferayLanguageServer implements LanguageServer {
 		return _workspaceService;
 	}
 
-	public CompletableFuture<InitializeResult> initialize(InitializeParams params) {
+	public CompletableFuture<InitializeResult> initialize(
+		InitializeParams params) {
+
 		ServerCapabilities serverCapabilities = new ServerCapabilities();
 
-		TextDocumentSyncOptions textDocumentSyncOptions = new TextDocumentSyncOptions();
+		TextDocumentSyncOptions textDocumentSyncOptions =
+			new TextDocumentSyncOptions();
 
 		textDocumentSyncOptions.setChange(TextDocumentSyncKind.Full);
 		textDocumentSyncOptions.setOpenClose(false);
@@ -70,13 +73,14 @@ public class LiferayLanguageServer implements LanguageServer {
 
 		serverCapabilities.setTextDocumentSync(textDocumentSyncOptions);
 
-		InitializeResult initializeResult = new InitializeResult(serverCapabilities);
+		InitializeResult initializeResult = new InitializeResult(
+			serverCapabilities);
 
 		ServerCapabilities capabilities = initializeResult.getCapabilities();
 
 		CompletionOptions completionOptions = new CompletionOptions();
 
-		List<String> triggerCharacters = Arrays.asList("=", ",");
+		List<String> triggerCharacters = Arrays.asList("=", ",", ":");
 
 		completionOptions.setTriggerCharacters(triggerCharacters);
 

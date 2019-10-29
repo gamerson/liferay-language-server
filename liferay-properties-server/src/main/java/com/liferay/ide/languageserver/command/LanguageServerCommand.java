@@ -39,12 +39,14 @@ public class LanguageServerCommand {
 
 		int port = 55555;
 
-		String liferayLanguageServerSocketServer = System.getProperty("liferayLanguageServerSocketServer");
+		String liferayLanguageServerSocketServer = System.getProperty(
+			"liferayLanguageServerSocketServer");
 
 		boolean socketServer = false;
 
 		try {
-			socketServer = Boolean.parseBoolean(liferayLanguageServerSocketServer);
+			socketServer = Boolean.parseBoolean(
+				liferayLanguageServerSocketServer);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -97,7 +99,8 @@ public class LanguageServerCommand {
 
 		LiferayLanguageServer server = new LiferayLanguageServer();
 
-		Launcher<LanguageClient> launcher = LSPLauncher.createServerLauncher(server, in, out);
+		Launcher<LanguageClient> launcher = LSPLauncher.createServerLauncher(
+			server, in, out);
 
 		LanguageClient client = launcher.getRemoteProxy();
 

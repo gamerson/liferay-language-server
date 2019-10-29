@@ -1,0 +1,60 @@
+{
+	"checkPossibleKeys": false,
+	"keys": [
+		{
+			"comment": "Add XML resources from the tested bundle to the output of a test report.",
+			"key": "Bnd-AddXmlToTest",
+			"snippet": ""
+		},
+		{
+			"comment": "Timestamp from bnd, aggregated last modified time of its resources.",
+			"key": "Bnd-LastModified",
+			"snippet": ""
+		},
+		{
+			"comment": "The Bundle-Activator header specifies the name of the class used to start and stop the bundle.",
+			"key": "Bundle-Blueprint",
+			"snippet": ""
+		},
+		{
+			"comment": "Lists the bundle contributors according to the Maven bundle-contributors pom entry.",
+			"key": "Bundle-Contributors",
+			"snippet": ""
+		},
+		{
+			"comment": "Recursively add packages from the class path when referred and when they match one of the package specifications.",
+			"key": "Conditional-Package",
+			"snippet": ""
+		},
+		{
+			"comment": "Includes resources, see `-includeresource`.",
+			"key": "Include-Resource",
+			"snippet": ""
+		},
+		{
+			"comment": "A Persistence Bundle is a bundle that contains the Meta-Persistence header. If this header is not present, then this specification does not apply and a JPA Provider should ignore the corresponding bundle.",
+			"key": "Meta-Persistence",
+			"snippet": ""
+		},
+		{
+			"comment": "Specifies what packages to include.",
+			"key": "Private-Package",
+			"snippet": ""
+		},
+		{
+			"comment": "XML documents containing component descriptions must be specified by the Service-Component header in the manifest.",
+			"key": "Service-Component",
+			"snippet": ""
+		},
+		{
+			"comment": "Header to automatically execute tests in the bnd JUnit tester.",
+			"key": "Test-Cases",
+			"snippet": ""
+		},
+		{
+			"comment": "Bnd version used to build this bundle.",
+			"key": "Tool",
+			"snippet": ""
+		}
+	]
+}

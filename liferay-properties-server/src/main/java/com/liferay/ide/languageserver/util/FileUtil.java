@@ -35,7 +35,9 @@ public class FileUtil {
 		return readLinesFromFile(file, false);
 	}
 
-	public static String[] readLinesFromFile(File file, boolean includeNewlines) {
+	public static String[] readLinesFromFile(
+		File file, boolean includeNewlines) {
+
 		if (!file.exists()) {
 			return null;
 		}
@@ -67,7 +69,9 @@ public class FileUtil {
 		return readLinesFromString(content, false);
 	}
 
-	public static String[] readLinesFromString(String content, boolean includeNewlines) {
+	public static String[] readLinesFromString(
+		String content, boolean includeNewlines) {
+
 		if (content.isEmpty()) {
 			return null;
 		}
@@ -77,7 +81,8 @@ public class FileUtil {
 		try (InputStreamReader inputStreamReader = new InputStreamReader(
 				new ByteArrayInputStream(content.getBytes()))) {
 
-			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+			BufferedReader bufferedReader = new BufferedReader(
+				inputStreamReader);
 
 			String line;
 

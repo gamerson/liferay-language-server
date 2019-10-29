@@ -25,7 +25,7 @@ import java.io.File;
 public class LiferayPluginPackageProperties extends PropertiesFile {
 
 	public LiferayPluginPackageProperties(File file) {
-		super(file, "/liferay-plugin-package-properties.json");
+		super(file, new String[] {"/liferay-plugin-package-properties.json"});
 	}
 
 	@Override

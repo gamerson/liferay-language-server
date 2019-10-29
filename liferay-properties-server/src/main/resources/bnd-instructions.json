@@ -1,0 +1,605 @@
+{
+	"checkPossibleKeys": false,
+	"keys": [
+		{
+			"comment": "",
+			"key": "-augment",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-baseline",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-baselinerepo",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-baselinerepo",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-builderignore",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-buildpath",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-buildrepo",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-bumppolicy",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-bundleannotations",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-cdiannotations",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-check",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-classpath",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-compression",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-conditionalpackage",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-conduit",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-connection-settings",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-consumer-policy",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-contract",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-dependson",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-deploy",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-deployrepo",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-diffignore",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-diffpackages",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-digests",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-distro",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-donotcopy",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-dsannotations-options",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-dsannotations",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-eeprofile",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-executable",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-export",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-exportcontents",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-exportreport",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-extension",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-failok",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-fixupmessages",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-include",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-includepackage",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-includeresource",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-invalidfilenames",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-javaagent",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-make",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-manifest",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-manifest-name",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-maven-release",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-metatype-options",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-metatype",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-namesection",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-nobuildincache",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-nobundles",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-novaluesversion",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-noee",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-noextraheaders",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-nojunit",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-nojunitosgi",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-nomanifest",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-nouses",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-output",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-outputmask",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-package",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-pedantic",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-plugin",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-pluginpath",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-prepare",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-preprocessmatchers",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-privatepackage",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-profile",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-provider-policy",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-releaserepo",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-remoteworkspace",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-removeheaders",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-reportconfig",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-reportnewer",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-require-bnd",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-resolve.effective",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-resolve.preferences",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-resourceonly",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runblacklist",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runbuilds",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runbundles",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runee",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runenv",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runframework",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runfw",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runjdb",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runkeep",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runnoreferences",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runpath",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runprogramargs",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runproperties",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runprovidedcapabilities",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runrepos",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runrequires",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runstorage",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runsystemcapabilities",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runsystempackages",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runtimeout",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runtrace",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-runvm",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-savemanifest",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-sign",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-snapshot",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-sourcepath",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-sources",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-stalecheck",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-standalone",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-strict",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-sub",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-systemproperties",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-testcontinuous",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-tester",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-testpackages",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-testpath",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-testsources",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-testunresolved",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-undertest",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-upto",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-wab",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-wablib",
+			"values": ""
+		},
+		{
+			"comment": "",
+			"key": "-workingset",
+			"values": ""
+		}
+	]
+}

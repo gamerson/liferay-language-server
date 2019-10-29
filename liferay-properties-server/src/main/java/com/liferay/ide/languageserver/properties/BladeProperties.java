@@ -24,7 +24,7 @@ import java.io.File;
 public class BladeProperties extends PropertiesFile {
 
 	public BladeProperties(File file) {
-		super(file, "/blade-properties.json");
+		super(file, new String[] {"/blade-properties.json"});
 	}
 
 	@Override

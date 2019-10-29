@@ -14,31 +14,29 @@
  * limitations under the License.
  */
 
-package com.liferay.ide.languageserver.services;
+package com.liferay.ide.languageserver.properties;
 
 import java.io.File;
 
 /**
  * @author Terry Jia
  */
-public class BooleanService extends Service {
+public class BndBnd extends PropertiesFile {
 
-	public BooleanService(File file) {
-		super(file);
+	public BndBnd(File file) {
+		super(
+			file,
+			new String[] {
+				"/bnd-osgi-headers.json", "/bnd-instructions.json",
+				"/bnd-liferay-headers.json", "/bnd-headers.json"
+			});
 	}
 
 	@Override
-	public String[] getPossibleValues() {
-		return new String[] {Boolean.TRUE.toString(), Boolean.FALSE.toString()};
-	}
+	public boolean match() {
+		String fileName = getFile().getName();
 
-	@Override
-	public void validate(String value) throws Exception {
-		if (!value.equalsIgnoreCase("true") &&
-			!value.equalsIgnoreCase("false")) {
-
-			throw new Exception("only boolean values are accepted");
-		}
+		return fileName.equals("bnd.bnd");
 	}
 
 }

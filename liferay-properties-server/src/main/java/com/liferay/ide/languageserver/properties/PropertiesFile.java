@@ -42,80 +42,96 @@ import org.json.JSONObject;
  */
 public abstract class PropertiesFile extends LiferayLSPFile {
 
-	public PropertiesFile(File file, String storageFile) {
+	public PropertiesFile(File file, String[] storageFiles) {
 		super(file);
 
 		Class<?> clazz = getClass();
 
-		try (InputStream in = clazz.getResourceAsStream(storageFile)) {
-			String source = IOUtils.toString(in, StandardCharsets.UTF_8);
+		for (String storageFile : storageFiles) {
+			try (InputStream in = clazz.getResourceAsStream(storageFile)) {
+				String source = IOUtils.toString(in, StandardCharsets.UTF_8);
 
-			JSONObject jsonObject = new JSONObject(source);
+				JSONObject jsonObject = new JSONObject(source);
 
-			_checkPossibleKeys = jsonObject.getBoolean("checkPossibleKeys");
+				_checkPossibleKeys = jsonObject.getBoolean("checkPossibleKeys");
 
-			JSONArray keyJSONArray = jsonObject.getJSONArray("keys");
+				JSONArray keyJSONArray = jsonObject.getJSONArray("keys");
 
-			for (Object keyObject : keyJSONArray) {
-				PropertyPair propertyPair = new PropertyPair();
+				for (Object keyObject : keyJSONArray) {
+					PropertyPair propertyPair = new PropertyPair();
 
-				JSONObject keyJSONObject = (JSONObject)keyObject;
+					JSONObject keyJSONObject = (JSONObject)keyObject;
 
-				String key = keyJSONObject.getString("key");
+					String key = keyJSONObject.getString("key");
 
-				boolean validateValues = keyJSONObject.getBoolean("validateValues");
+					try {
+						boolean validateValues = keyJSONObject.getBoolean(
+							"validateValues");
 
-				if (validateValues) {
-					_checkPossibleValueKeys.add(key);
-				}
-
-				propertyPair.setKey(key);
-
-				try {
-					String comment = keyJSONObject.getString("comment");
-
-					propertyPair.setComment(comment);
-				}
-				catch (Exception e) {
-				}
-
-				try {
-					String value = keyJSONObject.getString("values");
-
-					if ((value != null) && !value.equals("")) {
-						Service valueService = null;
-
-						if (value.equals("folder")) {
-							valueService = new FolderService(getFile());
+						if (validateValues) {
+							_checkPossibleValueKeys.add(key);
 						}
-						else if (value.equals("boolean") || value.equals("true") || value.equals("false")) {
-							valueService = new BooleanService(getFile());
-						}
-						else if (value.startsWith("CustomLSP")) {
-							String className = "com.liferay.extensions.languageserver.services.custom." + value;
-
-							Class<?> serviceClass = Class.forName(className);
-
-							Constructor constructor = serviceClass.getConstructor(File.class);
-
-							valueService = (Service)constructor.newInstance(getFile());
-						}
-						else {
-							String[] possibleValues = value.split(",");
-
-							valueService = new StringArrayService(getFile(), possibleValues);
-						}
-
-						propertyPair.setValue(valueService);
 					}
-				}
-				catch (Exception e) {
-				}
+					catch (Exception e) {
+					}
 
-				_propertyPairs.add(propertyPair);
+					propertyPair.setKey(key);
+
+					try {
+						String comment = keyJSONObject.getString("comment");
+
+						propertyPair.setComment(comment);
+					}
+					catch (Exception e) {
+					}
+
+					try {
+						String value = keyJSONObject.getString("values");
+
+						if ((value != null) && !value.equals("")) {
+							Service valueService = null;
+
+							if (value.equals("folder")) {
+								valueService = new FolderService(getFile());
+							}
+							else if (value.equals("boolean") ||
+									 value.equals("true") ||
+									 value.equals("false")) {
+
+								valueService = new BooleanService(getFile());
+							}
+							else if (value.startsWith("CustomLSP")) {
+								String className =
+									"com.liferay.extensions.languageserver.services.custom." +
+										value;
+
+								Class<?> serviceClass = Class.forName(
+									className);
+
+								Constructor constructor =
+									serviceClass.getConstructor(File.class);
+
+								valueService = (Service)constructor.newInstance(
+									getFile());
+							}
+							else {
+								String[] possibleValues = value.split(",");
+
+								valueService = new StringArrayService(
+									getFile(), possibleValues);
+							}
+
+							propertyPair.setValue(valueService);
+						}
+					}
+					catch (Exception e) {
+					}
+
+					_propertyPairs.add(propertyPair);
+				}
 			}
-		}
-		catch (Exception e) {
+			catch (Exception e) {
+			}
 		}
 	}
 

@@ -24,7 +24,7 @@ import java.io.File;
 public class LiferayWorkspaceGradleProperties extends PropertiesFile {
 
 	public LiferayWorkspaceGradleProperties(File file) {
-		super(file, "/liferay-workspace-gradle-properties.json");
+		super(file, new String[] {"/liferay-workspace-gradle-properties.json"});
 	}
 
 	@Override

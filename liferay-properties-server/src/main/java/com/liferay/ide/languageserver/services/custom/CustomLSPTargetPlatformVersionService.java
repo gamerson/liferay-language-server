@@ -31,12 +31,17 @@ import java.util.Properties;
 public class CustomLSPTargetPlatformVersionService extends StringArrayService {
 
 	public CustomLSPTargetPlatformVersionService(File file) {
-		super(file, new String[] {"7.0.6", "7.1.0", "7.1.1", "7.1.2", "7.1.3", "7.2.0"});
+		super(
+			file,
+			new String[] {
+				"7.0.6", "7.1.0", "7.1.1", "7.1.2", "7.1.3", "7.2.0"
+			});
 	}
 
 	@Override
 	public void validate(String value) throws Exception {
-		File bladeBlade = new File(getFile().getParentFile(), ".blade.properties");
+		File bladeBlade = new File(
+			getFile().getParentFile(), ".blade.properties");
 
 		if (!bladeBlade.exists()) {
 			return;
@@ -47,11 +52,13 @@ public class CustomLSPTargetPlatformVersionService extends StringArrayService {
 		try (InputStream in = Files.newInputStream(bladeBlade.toPath())) {
 			properties.load(in);
 
-			String liferayVersionDefault = properties.getProperty("liferay.version.default");
+			String liferayVersionDefault = properties.getProperty(
+				"liferay.version.default");
 
 			if (!value.startsWith(liferayVersionDefault)) {
 				throw new Exception(
-					"Version " + value + " does not match with " + liferayVersionDefault + " in .blade.properties");
+					"Version " + value + " does not match with " +
+						liferayVersionDefault + " in .blade.properties");
 			}
 		}
 	}

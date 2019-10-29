@@ -24,7 +24,7 @@ import java.io.File;
 public class PortalProperties extends PropertiesFile {
 
 	public PortalProperties(File file) {
-		super(file, "/portal-properties.json");
+		super(file, new String[] {"/portal-properties.json"});
 	}
 
 	@Override

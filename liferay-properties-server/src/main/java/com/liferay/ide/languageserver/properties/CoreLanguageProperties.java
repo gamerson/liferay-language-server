@@ -25,7 +25,7 @@ import java.io.File;
 public class CoreLanguageProperties extends PropertiesFile {
 
 	public CoreLanguageProperties(File file) {
-		super(file, "/core-language-properties.json");
+		super(file, new String[] {"/core-language-properties.json"});
 	}
 
 	public boolean checkPossibleKeys() {
@@ -36,7 +36,9 @@ public class CoreLanguageProperties extends PropertiesFile {
 	public boolean match() {
 		String fileName = getFile().getName();
 
-		if (fileName.startsWith("Language") && fileName.endsWith(".properties")) {
+		if (fileName.startsWith("Language") &&
+			fileName.endsWith(".properties")) {
+
 			return true;
 		}
 

@@ -16,13 +16,7 @@
 
 package com.liferay.ide.languageserver.diagnostic;
 
-import com.liferay.ide.languageserver.properties.BladeProperties;
-import com.liferay.ide.languageserver.properties.CoreLanguageProperties;
-import com.liferay.ide.languageserver.properties.LiferayPluginPackageProperties;
-import com.liferay.ide.languageserver.properties.LiferayWorkspaceGradleProperties;
-import com.liferay.ide.languageserver.properties.PortalProperties;
-import com.liferay.ide.languageserver.properties.PropertiesFile;
-import com.liferay.ide.languageserver.properties.PropertyPair;
+import com.liferay.ide.languageserver.properties.*;
 import com.liferay.ide.languageserver.services.Service;
 import com.liferay.ide.languageserver.util.FileUtil;
 
@@ -67,7 +61,11 @@ public class PropertiesDiagnostic {
 						continue;
 					}
 
-					int t = l.indexOf("=");
+					int t = line.indexOf("=");
+
+					if (t < 0) {
+						t = line.indexOf(":");
+					}
 
 					String key = l;
 					String value = "";
@@ -99,39 +97,54 @@ public class PropertiesDiagnostic {
 
 						diagnostic.setSeverity(DiagnosticSeverity.Warning);
 						diagnostic.setRange(
-							new Range(new Position(i, keyStart), new Position(i, keyStart + key.length())));
-						diagnostic.setMessage(key + " may not in possible keys");
+							new Range(
+								new Position(i, keyStart),
+								new Position(i, keyStart + key.length())));
+						diagnostic.setMessage(
+							key + " may not in possible keys");
 						diagnostic.setSource("ex");
 
 						diagnostics.add(diagnostic);
 					}
 
-					List<String> checkPossibleValueKeys = propertiesFile.checkPossibleValueKeys();
+					List<String> checkPossibleValueKeys =
+						propertiesFile.checkPossibleValueKeys();
 
-					if (!value.equals("") && checkPossibleValueKeys.contains(key)) {
+					if (!value.equals("") &&
+						checkPossibleValueKeys.contains(key)) {
+
 						String[] values = value.split(",");
 
 						for (String v : values) {
 							for (PropertyPair propertyPair : properties) {
 								if (key.equals(propertyPair.getKey())) {
-									Service valueService = propertyPair.getValue();
+									Service valueService =
+										propertyPair.getValue();
 
 									if (valueService != null) {
 										try {
-											valueService.validate(StringEscapeUtils.unescapeJava(v));
+											valueService.validate(
+												StringEscapeUtils.unescapeJava(
+													v));
 										}
 										catch (Exception e) {
 											int equalIndex = line.indexOf("=");
 
-											int valueStart = line.indexOf(v, equalIndex);
+											int valueStart = line.indexOf(
+												v, equalIndex);
 
-											Diagnostic diagnostic = new Diagnostic();
+											Diagnostic diagnostic =
+												new Diagnostic();
 
-											diagnostic.setSeverity(DiagnosticSeverity.Warning);
+											diagnostic.setSeverity(
+												DiagnosticSeverity.Warning);
 											diagnostic.setRange(
 												new Range(
 													new Position(i, valueStart),
-													new Position(i, valueStart + v.length())));
+													new Position(
+														i,
+														valueStart +
+															v.length())));
 
 											String message = e.getMessage();
 
@@ -139,7 +152,9 @@ public class PropertiesDiagnostic {
 												diagnostic.setMessage(message);
 											}
 											else {
-												diagnostic.setMessage("Validate failed on value \"" + v + "\"");
+												diagnostic.setMessage(
+													"Validate failed on value \"" +
+														v + "\"");
 											}
 
 											diagnostic.setSource("ex");
@@ -170,6 +185,7 @@ public class PropertiesDiagnostic {
 		propertiesFiles.add(new PortalProperties(file));
 		propertiesFiles.add(new LiferayPluginPackageProperties(file));
 		propertiesFiles.add(new CoreLanguageProperties(file));
+		propertiesFiles.add(new BndBnd(file));
 
 		return propertiesFiles;
 	}

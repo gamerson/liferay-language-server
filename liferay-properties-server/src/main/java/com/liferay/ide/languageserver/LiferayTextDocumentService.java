@@ -48,26 +48,35 @@ import org.eclipse.lsp4j.services.TextDocumentService;
  */
 public class LiferayTextDocumentService implements TextDocumentService {
 
-	public LiferayTextDocumentService(LiferayLanguageServer liferayLanguageServer) {
+	public LiferayTextDocumentService(
+		LiferayLanguageServer liferayLanguageServer) {
+
 		_liferayLanguageServer = liferayLanguageServer;
 	}
 
 	@Override
-	public CompletableFuture<Either<List<CompletionItem>, CompletionList>> completion(
-		CompletionParams completionParams) {
+	public CompletableFuture<Either<List<CompletionItem>, CompletionList>>
+		completion(CompletionParams completionParams) {
 
-		PropertiesCompletion propertiesCompletion = new PropertiesCompletion(completionParams);
+		PropertiesCompletion propertiesCompletion = new PropertiesCompletion(
+			completionParams);
 
-		List<CompletionItem> completionItems = propertiesCompletion.getCompletions(_currentContent);
+		List<CompletionItem> completionItems =
+			propertiesCompletion.getCompletions(_currentContent);
 
-		return CompletableFuture.supplyAsync(() -> Either.forLeft(completionItems));
+		return CompletableFuture.supplyAsync(
+			() -> Either.forLeft(completionItems));
 	}
 
 	@Override
-	public void didChange(DidChangeTextDocumentParams didChangeTextDocumentParams) {
-		List<TextDocumentContentChangeEvent> contentChangeEvents = didChangeTextDocumentParams.getContentChanges();
+	public void didChange(
+		DidChangeTextDocumentParams didChangeTextDocumentParams) {
 
-		TextDocumentContentChangeEvent contentChangeEvnet = contentChangeEvents.get(0);
+		List<TextDocumentContentChangeEvent> contentChangeEvents =
+			didChangeTextDocumentParams.getContentChanges();
+
+		TextDocumentContentChangeEvent contentChangeEvnet =
+			contentChangeEvents.get(0);
 
 		String currentContent = contentChangeEvnet.getText();
 
@@ -75,25 +84,30 @@ public class LiferayTextDocumentService implements TextDocumentService {
 	}
 
 	@Override
-	public void didClose(DidCloseTextDocumentParams didCloseTextDocumentParams) {
+	public void didClose(
+		DidCloseTextDocumentParams didCloseTextDocumentParams) {
 	}
 
 	@Override
 	public void didOpen(DidOpenTextDocumentParams didOpenTextDocumentParams) {
-		TextDocumentItem textDocument = didOpenTextDocumentParams.getTextDocument();
+		TextDocumentItem textDocument =
+			didOpenTextDocumentParams.getTextDocument();
 
 		try {
 			URI uri = new URI(textDocument.getUri());
 
 			File file = new File(uri);
 
-			PropertiesDiagnostic propertiesDiagnostic = new PropertiesDiagnostic(file);
+			PropertiesDiagnostic propertiesDiagnostic =
+				new PropertiesDiagnostic(file);
 
 			List<Diagnostic> diagnostics = propertiesDiagnostic.validate();
 
 			LanguageClient client = _liferayLanguageServer.getLanguageClient();
 
-			client.publishDiagnostics(new PublishDiagnosticsParams(textDocument.getUri(), diagnostics));
+			client.publishDiagnostics(
+				new PublishDiagnosticsParams(
+					textDocument.getUri(), diagnostics));
 		}
 		catch (URISyntaxException urise) {
 		}
@@ -101,20 +115,24 @@ public class LiferayTextDocumentService implements TextDocumentService {
 
 	@Override
 	public void didSave(DidSaveTextDocumentParams didSaveTextDocumentParams) {
-		TextDocumentIdentifier textDocument = didSaveTextDocumentParams.getTextDocument();
+		TextDocumentIdentifier textDocument =
+			didSaveTextDocumentParams.getTextDocument();
 
 		try {
 			URI uri = new URI(textDocument.getUri());
 
 			File file = new File(uri);
 
-			PropertiesDiagnostic propertiesDiagnostic = new PropertiesDiagnostic(file);
+			PropertiesDiagnostic propertiesDiagnostic =
+				new PropertiesDiagnostic(file);
 
 			List<Diagnostic> diagnostics = propertiesDiagnostic.validate();
 
 			LanguageClient client = _liferayLanguageServer.getLanguageClient();
 
-			client.publishDiagnostics(new PublishDiagnosticsParams(textDocument.getUri(), diagnostics));
+			client.publishDiagnostics(
+				new PublishDiagnosticsParams(
+					textDocument.getUri(), diagnostics));
 		}
 		catch (URISyntaxException urise) {
 		}

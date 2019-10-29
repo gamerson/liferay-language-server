@@ -26,11 +26,13 @@ import org.eclipse.lsp4j.services.WorkspaceService;
 public class LiferayWorkspaceService implements WorkspaceService {
 
 	@Override
-	public void didChangeConfiguration(DidChangeConfigurationParams didChangeConfigurationParams) {
+	public void didChangeConfiguration(
+		DidChangeConfigurationParams didChangeConfigurationParams) {
 	}
 
 	@Override
-	public void didChangeWatchedFiles(DidChangeWatchedFilesParams didChangeWatchedFilesParams) {
+	public void didChangeWatchedFiles(
+		DidChangeWatchedFilesParams didChangeWatchedFilesParams) {
 	}
 
 }
