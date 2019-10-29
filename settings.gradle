@@ -1,1 +1,2 @@
 include 'liferay-properties-server'
+include 'services'
