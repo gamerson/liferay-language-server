@@ -76,11 +76,11 @@ public class PropertiesDiagnostic {
 					String value = "";
 
 					if (t > 0) {
-						key = l.substring(0, t);
+						key = line.substring(0, t);
 
 						key = key.trim();
 
-						value = l.substring(t + 1);
+						value = line.substring(t + 1);
 
 						value = value.trim();
 					}
