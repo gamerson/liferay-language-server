@@ -100,8 +100,8 @@ public abstract class PropertiesFile extends LiferayLSPFile {
 							}
 							else if (value.startsWith("CustomLSP")) {
 								String className =
-									"com.liferay.ide.languageserver.services.custom." +
-										value;
+									"com.liferay.ide.languageserver.services." +
+										"custom." + value;
 
 								Class<?> serviceClass = Class.forName(
 									className);

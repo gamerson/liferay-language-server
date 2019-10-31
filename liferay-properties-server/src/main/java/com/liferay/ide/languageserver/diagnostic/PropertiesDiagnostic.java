@@ -158,8 +158,8 @@ public class PropertiesDiagnostic {
 											}
 											else {
 												diagnostic.setMessage(
-													"Validate failed on value \"" +
-														v + "\"");
+													"Validate failed on " +
+														"value \"" + v + "\"");
 											}
 
 											diagnostic.setSource("ex");

@@ -33,68 +33,99 @@ import org.eclipse.lsp4j.services.LanguageClient;
 public class LanguageServerCommand {
 
 	public static void main(String[] args) throws Exception {
-		String liferayLanguageServerPort = System.getProperty(
-			"liferayLanguageServerPort");
+		String liferayLanguageServerStandardIO = System.getProperty(
+			"liferayLanguageServerStandardIO");
 
-		int port = Integer.parseInt(liferayLanguageServerPort);
-
-		String liferayLanguageServerSocketServer = System.getProperty(
-			"liferayLanguageServerSocketServer");
-
-		boolean socketServer = false;
+		boolean stdio = false;
 
 		try {
-			socketServer = Boolean.parseBoolean(
-				liferayLanguageServerSocketServer);
+			stdio = Boolean.parseBoolean(liferayLanguageServerStandardIO);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		if (socketServer) {
-			ServerSocket serverSocket = new ServerSocket(port);
+		InputStream in;
+		OutputStream out;
 
-			Thread socketThread = new Thread(
-				() -> {
-					try {
-						_socket = serverSocket.accept();
-					}
-					catch (IOException ioe) {
-						ioe.printStackTrace();
-					}
-					finally {
+		if (stdio) {
+			in = System.in;
+			out = System.out;
+		}
+		else {
+			String liferayLanguageServerPort = System.getProperty(
+				"liferayLanguageServerPort");
+
+			int port = -1;
+
+			try {
+				port = Integer.parseInt(liferayLanguageServerPort);
+			}
+			catch (NumberFormatException nfe) {
+			}
+
+			if (port < 0) {
+				return;
+			}
+
+			String liferayLanguageServerSocketServer = System.getProperty(
+				"liferayLanguageServerSocketServer");
+
+			boolean socketServer = false;
+
+			try {
+				socketServer = Boolean.parseBoolean(
+					liferayLanguageServerSocketServer);
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			if (socketServer) {
+				ServerSocket serverSocket = new ServerSocket(port);
+
+				Thread socketThread = new Thread(
+					() -> {
 						try {
-							serverSocket.close();
+							_socket = serverSocket.accept();
 						}
 						catch (IOException ioe) {
 							ioe.printStackTrace();
 						}
-					}
-				});
+						finally {
+							try {
+								serverSocket.close();
+							}
+							catch (IOException ioe) {
+								ioe.printStackTrace();
+							}
+						}
+					});
 
-			socketThread.start();
+				socketThread.start();
 
-			try {
-				socketThread.join();
+				try {
+					socketThread.join();
+				}
+				catch (InterruptedException ie) {
+					Thread thread = Thread.currentThread();
+
+					thread.interrupt();
+
+					return;
+				}
+
+				if (_socket == null) {
+					return;
+				}
 			}
-			catch (InterruptedException ie) {
-				Thread thread = Thread.currentThread();
-
-				thread.interrupt();
-
-				return;
+			else {
+				_socket = new Socket("localhost", port);
 			}
 
-			if (_socket == null) {
-				return;
-			}
+			in = _socket.getInputStream();
+			out = _socket.getOutputStream();
 		}
-		else {
-			_socket = new Socket("localhost", port);
-		}
-
-		InputStream in = _socket.getInputStream();
-		OutputStream out = _socket.getOutputStream();
 
 		LiferayLanguageServer server = new LiferayLanguageServer();
 
