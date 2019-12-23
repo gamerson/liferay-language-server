@@ -21,8 +21,19 @@ import java.io.File;
  */
 public class Service {
 
+	private String[] _args;
+
 	public Service(File file) {
 		_file = file;
+	}
+
+	public Service(File file, String... args) {
+		_file = file;
+		_args = args;
+	}
+
+	public String[] getArgs() {
+		return _args;
 	}
 
 	public File getFile() {
